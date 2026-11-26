@@ -19,6 +19,11 @@ namespace APIannons
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.UseSwaggerUI(appAction =>
+                {
+                    appAction.SwaggerEndpoint("/openapi/v1.json", "API Annons");
+                    appAction.RoutePrefix = string.Empty;
+                });
             }
 
             app.UseHttpsRedirection();
